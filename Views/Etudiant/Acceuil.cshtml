@@ -3,3 +3,35 @@
 }
 
 <h1>Bienvenue sur la page d'accueil</h1>
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card-body">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-bordered border-primary">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Semestre</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var list in ViewBag.semestre)
+                                {
+                                    <tr class="table-success">
+                                        <td>
+                                            <a asp-controller="Etudiant" asp-action="Note" asp-route-idsemestre="@list.Id">
+                                                @list.Nom
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

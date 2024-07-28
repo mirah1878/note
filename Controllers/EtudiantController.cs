@@ -11,24 +11,38 @@ public class EtudiantController : Controller
 {
     private readonly ILogger<EtudiantController> _logger;
     private readonly ApplicationDbContext _context;
-     private readonly EtudiantRepository etudiant;
+    private readonly EtudiantRepository etudiant;
+    private readonly SemestreRepository semestre;
+    private readonly VnoteSemestreRepository notesemestre;
 
      public EtudiantController(
         ApplicationDbContext context,
         ILogger<EtudiantController> logger,
         AdminRepository ad,
-        EtudiantRepository et
-        )
+        EtudiantRepository et,
+        SemestreRepository sem,
+        VnoteSemestreRepository vn
+         )
     {
         _logger = logger;
         _context = context;
         etudiant= et;
-
+        semestre = sem;
+        notesemestre = vn;
     }
    
+    public IActionResult Note(string idsemestre)
+    {
+         string? userId = HttpContext.Session.GetString("Id"); 
+         Console.WriteLine("use:"+userId+" sem: "+idsemestre);
+        ViewBag.note = notesemestre.GetNote(userId,idsemestre);
+        return View();
+    }   
      public IActionResult Acceuil()
     {
-        ViewBag.UserId = TempData["UserId"] as string;
+        string? userId = HttpContext.Session.GetString("Id"); 
+         Console.WriteLine("use:"+userId);
+        ViewBag.semestre = semestre.FindAll();
         return View();
     }
 
@@ -37,7 +51,7 @@ public class EtudiantController : Controller
         string? userId = etudiant.Authenticate(numetu);
         if (!string.IsNullOrEmpty(userId))
         {
-            TempData["UserId"] = userId; 
+            HttpContext.Session.SetString("Id", userId);
             return RedirectToAction("Acceuil", "Etudiant");
         }
         else

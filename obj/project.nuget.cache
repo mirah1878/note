@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "N9tN9ar/9rs6LJou1XB0Wi6v9m/ulmuOe0pqPL/GITnWl3p0+gl6bwg8zw30lPluQQ0n129yKGV/n/FmsaaRIw==",
+  "dgSpecHash": "eITDLQydN31mDjo6RtciMzoK+PPXX/nizbsPm4EMrOazcy9V3Tj5xlBqPONq98bBF4ZchpfBFhwctEHk4VZ26A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Rmira\\Downloads\\Mvc\\Mvc\\Mvc.csproj",
   "expectedPackageFiles": [
@@ -17,19 +17,8 @@
     "C:\\Users\\Rmira\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Rmira\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
     "C:\\Users\\Rmira\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
-    "C:\\Users\\Rmira\\.nuget\\packages\\npgsql\\8.0.2\\npgsql.8.0.2.nupkg.sha512",
+    "C:\\Users\\Rmira\\.nuget\\packages\\npgsql\\8.0.3\\npgsql.8.0.3.nupkg.sha512",
     "C:\\Users\\Rmira\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\8.0.2\\npgsql.entityframeworkcore.postgresql.8.0.2.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Npgsql' 8.0.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-x9vc-6hfv-hg8c",
-      "libraryId": "Npgsql",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "logs": []
 }

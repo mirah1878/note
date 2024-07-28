@@ -1,0 +1,42 @@
+@{
+    Layout = "~/Views/Shared/Etudiant.cshtml";
+}
+
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+        <div class="card-body">
+          <div class="card">
+            <div class="card-body">
+                <table class="table table-bordered border-primary">
+                    <thead>
+                      <tr>
+                        <th scope="col"> nom_matiere  </th>
+                        <th scope="col"> credit_matiere </th>
+                        <th scope="col">code_matiere</th>
+                        <th scope="col">note </th>
+                        <th scope="col">etat</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach(var list in ViewBag.note){
+                        <p>Moyenne : @list.Moyenne</p>
+                      <tr>
+                        <td>@list.NomMatiere</td>
+                        <td>@list.CreditMatiere</td>
+                        <td>@list.CodeMatiere</td>
+                        <td>@list.Note</td>
+                        @if(@list.Etat == -1){
+                            <td style="color: red;">Ajournée</td>
+                        }else{
+                            <td>Milamina</td>
+                        }
+                      </tr>                     
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
