@@ -12,6 +12,9 @@ public class Etudiant
     [Column("id_promotion")]
     public string? IdPromotion { get; set; }
 
+    [Column("id_genre")]
+    public string? IdGenre { get; set; }    
+
     [Column("num_etu")]
     public string? NumEtu { get; set; }
 

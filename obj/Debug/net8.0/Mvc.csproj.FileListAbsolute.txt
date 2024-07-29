@@ -102,3 +102,4 @@ C:\Users\Rmira\Downloads\Mvc\Mvc\obj\Debug\net8.0\refint\Mvc.dll
 C:\Users\Rmira\Downloads\Mvc\Mvc\obj\Debug\net8.0\Mvc.pdb
 C:\Users\Rmira\Downloads\Mvc\Mvc\obj\Debug\net8.0\Mvc.genruntimeconfig.cache
 C:\Users\Rmira\Downloads\Mvc\Mvc\obj\Debug\net8.0\ref\Mvc.dll
+C:\Users\Rmira\Downloads\Mvc\Mvc\bin\Debug\net8.0\CsvHelper.dll

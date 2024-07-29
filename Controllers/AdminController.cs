@@ -12,37 +12,44 @@ public class AdminController : Controller
 {
     private readonly ILogger<AdminController> _logger;
     private readonly ApplicationDbContext _context;
-     private readonly AdminRepository admin;
-     private readonly EtudiantRepository etudiant;
+    private readonly AdminRepository admin;
+    private readonly EtudiantRepository etudiant;
+    
+    private readonly Import csv;
    
 
     public AdminController(
         ApplicationDbContext context,
         ILogger<AdminController> logger,
         AdminRepository ad,
-        EtudiantRepository et
+        EtudiantRepository et,
+        Import _csv
         )
     {
         _logger = logger;
         _context = context;
         admin = ad;
         etudiant = et;
-       
+       csv = _csv;
     }
 
-    
-    
-
-    public IActionResult Restore()
+    public IActionResult ImportNote(IFormFile note)
     {
-        _context.Database.ExecuteSqlRaw(@"TRUNCATE TABLE client,proprietaire,
-            type_de_bien,region,bien,photo,location,bien_temporaire,location_temporaire,commission_temporaire cascade");
-        return RedirectToAction("Index", "Admin");
+        if(note!= null){
+            csv.ImportCsvToDatabase("note_temporaire",note,NoteTemporaire.MapNoteTemporaire);
+            csv.InsertDataNote();
+            return RedirectToAction("Acceuil", "Admin"); 
+        }else{
+            TempData["ErrorMessage"] = "le fichier ne doit pas etre null";
+            return RedirectToAction("PageImportNote","");
+        }
     }
 
-    
-
-    
+    public IActionResult PageImportNote()
+    {
+        return View();
+    }
+        
     public IActionResult Acceuil()
     {
         return View();

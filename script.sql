@@ -16,10 +16,18 @@ CREATE TABLE promotion (
     nom VARCHAR NOT NULL
 );
 
+CREATE SEQUENCE genre_seq; 
+CREATE TABLE genre (
+    id VARCHAR PRIMARY KEY DEFAULT CONCAT('gr', LPAD(nextval('genre_seq')::TEXT, 3, '0')),
+    nom VARCHAR NOT NULL
+);
+
+
 CREATE SEQUENCE etudiant_seq;
 CREATE TABLE etudiant (
     id VARCHAR PRIMARY KEY DEFAULT CONCAT('ET', LPAD(nextval('etudiant_seq')::TEXT, 6, '0')),
     id_promotion VARCHAR NOT NULL REFERENCES promotion(id),
+    id_genre VARCHAR NOT NULL REFERENCES genre(id),
     num_etu VARCHAR NOT NULL,
     nom VARCHAR NOT NULL,
     prenom VARCHAR NOT NULL,
@@ -36,7 +44,7 @@ CREATE SEQUENCE matiere_seq;
 CREATE TABLE matiere (
     id VARCHAR PRIMARY KEY DEFAULT CONCAT('MT', LPAD(nextval('matiere_seq')::TEXT, 3, '0')),
     id_semestre VARCHAR NOT NULL REFERENCES semestre(id),
-    nom VARCHAR NOT NULL,
+    nom VARCHAR,
     code VARCHAR NOT NULL,
     credit INT,
     optionnelle VARCHAR
@@ -48,6 +56,19 @@ CREATE TABLE note (
     id_etudiant VARCHAR NOT NULL REFERENCES etudiant(id),
     id_matiere VARCHAR NOT NULL REFERENCES matiere(id),
     note DOUBLE PRECISION
+);
+
+
+CREATE TABLE note_temporaire(
+     numetu VARCHAR,
+     nom VARCHAR,
+     prenom VARCHAR,
+     genre VARCHAR,
+     datedenaissance DATE,
+     promotion VARCHAR,
+     codematiere VARCHAR,
+     semestre VARCHAR,
+     note DOUBLE PRECISION
 );
 
 select 

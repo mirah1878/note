@@ -18,6 +18,8 @@ public class ApplicationDbContext : DbContext
  
     public DbSet<Matiere> _matiere {get; set;}
     public DbSet<VnoteEtudiantParSemestre> _vnoteEtudiantParSemestre {get; set;}
+    public DbSet<NoteTemporaire> _notetemp {get; set; }
+    public DbSet<Genre> _genre {get; set; }
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -52,6 +54,13 @@ public class ApplicationDbContext : DbContext
             modelBuilder.Entity<VnoteEtudiantParSemestre>()
                 .Property(p => p.Id)
                 .HasDefaultValueSql($"NEXT VALUE FOR v_notes_etudiants_par_semestre_seq");
+
+
+            modelBuilder.Entity<Genre>()
+                .Property(p => p.Id)
+                .HasDefaultValueSql($"NEXT VALUE FOR genre_seq");
+
+            modelBuilder.Entity<NoteTemporaire>().HasNoKey();
 
     }
 }
