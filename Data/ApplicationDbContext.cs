@@ -51,16 +51,13 @@ public class ApplicationDbContext : DbContext
                 .Property(p => p.Id)
                 .HasDefaultValueSql($"NEXT VALUE FOR matiere_seq");
 
-            modelBuilder.Entity<VnoteEtudiantParSemestre>()
-                .Property(p => p.Id)
-                .HasDefaultValueSql($"NEXT VALUE FOR v_notes_etudiants_par_semestre_seq");
-
 
             modelBuilder.Entity<Genre>()
                 .Property(p => p.Id)
                 .HasDefaultValueSql($"NEXT VALUE FOR genre_seq");
 
             modelBuilder.Entity<NoteTemporaire>().HasNoKey();
+            modelBuilder.Entity<VnoteEtudiantParSemestre>().HasNoKey();
 
     }
 }

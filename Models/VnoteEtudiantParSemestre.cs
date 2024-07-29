@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 [Table("v_notes_etudiants_par_semestre")]
 public class VnoteEtudiantParSemestre
 {
-    [Key]
     [Column("id")]
     public string? Id { get; set; }
 

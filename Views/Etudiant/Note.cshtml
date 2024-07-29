@@ -12,8 +12,6 @@
                 <table class="table table-bordered border-primary">
                     <thead>
                       <tr>
-                        <th scope="col"> nom_matiere  </th>
-                        <th scope="col"> credit_matiere </th>
                         <th scope="col">code_matiere</th>
                         <th scope="col">note </th>
                         <th scope="col">etat</th>
@@ -21,10 +19,7 @@
                     </thead>
                     <tbody>
                     @foreach(var list in ViewBag.note){
-                        <p>Moyenne : @list.Moyenne</p>
                       <tr>
-                        <td>@list.NomMatiere</td>
-                        <td>@list.CreditMatiere</td>
                         <td>@list.CodeMatiere</td>
                         <td>@list.Note</td>
                         @if(@list.Etat == -1){

@@ -36,6 +36,9 @@ public class EtudiantController : Controller
          string? userId = HttpContext.Session.GetString("Id"); 
          Console.WriteLine("use:"+userId+" sem: "+idsemestre);
         ViewBag.note = notesemestre.GetNote(userId,idsemestre);
+        foreach(var list in ViewBag.note){
+            Console.WriteLine("codeMatiere"+@list.CodeMatiere);         
+        }
         return View();
     }   
      public IActionResult Acceuil()
